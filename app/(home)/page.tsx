@@ -51,11 +51,6 @@ const HomePage = () => {
     };
   }, [loadMore]);
 
-  // Reset visible count when filters change
-  useEffect(() => {
-    setVisibleCount(POSTS_PER_PAGE);
-  }, [search, activeCategory]);
-
   return (
     <div className="p-6 max-w-6xl mx-auto">
       <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
@@ -65,7 +60,7 @@ const HomePage = () => {
           <Input
             placeholder="Buscar..."
             value={search}
-            onChange={(e) => setSearch(e.target.value)}
+            onChange={(e) => { setSearch(e.target.value); setVisibleCount(POSTS_PER_PAGE); }}
             className="pl-9"
           />
         </div>
@@ -76,7 +71,7 @@ const HomePage = () => {
         <Button
           variant={activeCategory === "all" ? "default" : "outline"}
           size="sm"
-          onClick={() => setActiveCategory("all")}
+          onClick={() => { setActiveCategory("all"); setVisibleCount(POSTS_PER_PAGE); }}
         >
           Todos
         </Button>
@@ -85,7 +80,7 @@ const HomePage = () => {
             key={cat.value}
             variant={activeCategory === cat.value ? "default" : "outline"}
             size="sm"
-            onClick={() => setActiveCategory(cat.value)}
+            onClick={() => { setActiveCategory(cat.value); setVisibleCount(POSTS_PER_PAGE); }}
             className="gap-1.5"
           >
             <cat.Icon className="h-4 w-4" />
