@@ -10,6 +10,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { DatabaseModule } from './database/database.module';
 import { MediaModule } from './modules/media/media.module';
+import { NoncesModule } from './modules/nonces/nonces.module';
 
 @Module({
   imports: [
@@ -26,6 +27,7 @@ import { MediaModule } from './modules/media/media.module';
     }),
     DatabaseModule,
     MediaModule,
+    NoncesModule,
   ],
   controllers: [AppController],
   providers: [AppService],
