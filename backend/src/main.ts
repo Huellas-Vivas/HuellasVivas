@@ -4,7 +4,6 @@ import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import helmet from 'helmet';
 import compression from 'compression';
 
-
 import { AppModule } from './app.module';
 import { printBanner } from './common/utils/banner';
 import { HttpExceptionFilter } from './common/filters/http-exception.filter';
