@@ -8,6 +8,7 @@ import stellarConfig from './config/stellar.config';
 import trustlessWorkConfig from './config/trustless-work.config';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { NoncesModule } from './modules/nonces/nonces.module';
 
 @Module({
   imports: [
@@ -22,8 +23,9 @@ import { AppService } from './app.service';
         trustlessWorkConfig,
       ],
     }),
+    NoncesModule,
   ],
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule { }
+export class AppModule {}
