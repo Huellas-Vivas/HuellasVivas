@@ -7,9 +7,9 @@ import { HttpException, HttpStatus } from '@nestjs/common';
 export class AppException extends HttpException {
   constructor(
     public readonly code: string,
-    message: string,
+    message: string | string[],
     status: HttpStatus = HttpStatus.BAD_REQUEST,
   ) {
-    super({ code, message, statusCode: status }, status);
+    super({ code, message }, status);
   }
 }
