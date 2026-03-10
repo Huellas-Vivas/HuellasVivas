@@ -8,6 +8,7 @@ import stellarConfig from './config/stellar.config';
 import trustlessWorkConfig from './config/trustless-work.config';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { DatabaseModule } from './database/database.module';
 
 @Module({
   imports: [
@@ -22,6 +23,7 @@ import { AppService } from './app.service';
         trustlessWorkConfig,
       ],
     }),
+    DatabaseModule,
   ],
   controllers: [AppController],
   providers: [AppService],
