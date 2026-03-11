@@ -10,6 +10,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { DatabaseModule } from './database/database.module';
 import { WalletsModule } from './modules/wallets/wallets.module';
+import { MediaModule } from './modules/media/media.module';
 
 @Module({
   imports: [
@@ -26,8 +27,9 @@ import { WalletsModule } from './modules/wallets/wallets.module';
     }),
     DatabaseModule,
     WalletsModule,
+    MediaModule,
   ],
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule { }
+export class AppModule {}

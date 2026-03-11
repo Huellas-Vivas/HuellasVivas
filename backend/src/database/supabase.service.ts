@@ -13,13 +13,12 @@ export class SupabaseService {
   readonly adminClient: SupabaseClient;
 
   constructor(private readonly config: ConfigService) {
-    const url = config.getOrThrow<string>('SUPABASE_URL');
-
-    this.client = createClient(url, config.getOrThrow<string>('SUPABASE_ANON_KEY'));
-
-    this.adminClient = createClient(
-      url,
-      config.getOrThrow<string>('SUPABASE_SERVICE_ROLE_KEY'),
-    );
+    const url = this.config.getOrThrow<string>('supabase.url');
+    const anon = this.config.getOrThrow<string>('supabase.anonKey');
+    const svc = this.config.getOrThrow<string>('supabase.serviceRoleKey');
+    this.client = createClient(url, anon);
+    this.adminClient = createClient(url, svc, {
+      auth: { autoRefreshToken: false, persistSession: false },
+    });
   }
 }
