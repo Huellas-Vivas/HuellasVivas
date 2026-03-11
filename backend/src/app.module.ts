@@ -9,6 +9,7 @@ import trustlessWorkConfig from './config/trustless-work.config';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { DatabaseModule } from './database/database.module';
+import { WalletsModule } from './modules/wallets/wallets.module';
 import { MediaModule } from './modules/media/media.module';
 
 @Module({
@@ -25,6 +26,7 @@ import { MediaModule } from './modules/media/media.module';
       ],
     }),
     DatabaseModule,
+    WalletsModule,
     MediaModule,
   ],
   controllers: [AppController],

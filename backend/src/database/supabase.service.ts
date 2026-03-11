@@ -2,6 +2,11 @@ import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { createClient, SupabaseClient } from '@supabase/supabase-js';
 
+/**
+ * SupabaseService provides two Supabase clients:
+ * - `client`      — uses the anon key (respects Row Level Security)
+ * - `adminClient` — uses the service_role key (bypasses RLS, use sparingly)
+ */
 @Injectable()
 export class SupabaseService {
   readonly client: SupabaseClient;
