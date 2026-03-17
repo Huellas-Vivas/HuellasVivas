@@ -9,6 +9,8 @@ import trustlessWorkConfig from './config/trustless-work.config';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { DatabaseModule } from './database/database.module';
+import { AuthModule } from './modules/auth/auth.module';
+import { CategoriesModule } from './modules/categories/categories.module';
 import { MediaModule } from './modules/media/media.module';
 
 @Module({
@@ -25,6 +27,8 @@ import { MediaModule } from './modules/media/media.module';
       ],
     }),
     DatabaseModule,
+    AuthModule,
+    CategoriesModule,
     MediaModule,
   ],
   controllers: [AppController],
